@@ -3,5 +3,19 @@
 
 <h2>Contexto:</h2>
 
-<p>Projeto Final Módulo 1 (SENAI - LAB365), exercício proposto:
-"A 365 Medical Inc, empresa líder no segmento tecnológico para gestão hospitalar, está tomando algumas ações para testar e automatizar determinados processos nos atendimentos de pacientes em âmbito hospitalar. O seu perfil chamou a atenção dos gestores, para criar o Produto Viável Mínimo (Inglês: MVP) da API Rest, que deverá ser construída utilizando JavaScript, ExpressJS e PostgreSQL."</p>
+<p>A API Medical System executa o gerenciamento dos cadastros de médicos, enfermeiros e pacientes através da insersão, busca e alteração no banco de dados. </p>
+
+<p>A API Medical System fornece o registro de atendimento dos médicos e a atualização do status do paciente quando atendido.</p>
+
+<h2>Tecnologias:</h2>
+
+| Linguagem | Documentação |
+| ------ | ------ |
+| JavaScript | [https://developer.mozilla.org/pt-BR/docs/Web/JavaScript] |
+
+
+| Framework | Documentação |
+| ------ | ------ |
+| Express | [https://expressjs.com/pt-br/] |
+| Sequelize | [https://sequelize.org/] |
+| Node.JS | [https://nodejs.org/en] |
