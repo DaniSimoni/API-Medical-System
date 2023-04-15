@@ -1,4 +1,5 @@
-<h1>Aplicativo API para Gerenciamento de Médicos, Enfermeiros e Pacientes</h1>
+<h1>API Medical System</h1>
+<h3>Aplicativo API para Gerenciamento de Médicos, Enfermeiros e Pacientes</h3>
 
 <h2>Contexto:</h2>
 
