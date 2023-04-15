@@ -5,9 +5,11 @@
 
 <p>A API Medical System executa o gerenciamento dos cadastros de médicos, enfermeiros e pacientes através da insersão, busca e alteração no banco de dados. </p>
 <p>A API Medical System fornece o registro de atendimento dos médicos e a atualização do status do paciente quando atendido.</p>
-
+<p>________________________</p>
 <p>The Medical System API manages the records of doctors, nurses and patients by inserting, searching and changing the database. </p>
 <p>The Medical System API provides physicians' attendance record and patient status update when attended.</p>
+
+
 
 <h2>Tecs:</h2>
 
@@ -33,6 +35,7 @@ Para iniciar o aplicativo começamos pelo [Node.js] v8+ usando os comandos abaix
 ```sh
 cd API_MEDICAL_SYSTEM
 npm i
+npm start
 
 ```
 
