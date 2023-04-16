@@ -36,14 +36,12 @@ Para iniciar o aplicativo começamos pelo [Node.js] v8+ usando os comandos abaix
 cd API_MEDICAL_SYSTEM
 npm i
 npm start
-
 ```
 
 Na sequência instalaremos o[Express.JS] usando os comando abaixo: 
 
 ```sh
 npm i express
-
 ```
 
 Instalaremos agora o [Sequelize] para fazer a integração com banco de dados. 
@@ -51,14 +49,12 @@ Instalaremos agora o [Sequelize] para fazer a integração com banco de dados.
 ```sh
 npm i --save sequelize
 npm i --save pg pg-hstore
-
 ```
 
 Por fim, instalaremos o Nodemon para poder atualizar o servidor automaticamente.
 
 ```sh
 npm i nodemon
-
 ```
 
 <h2>Padrões Utilizados</h2>
@@ -207,3 +203,24 @@ Descrição: Busca o enfermeiro pelo Id e exclui do banco de dados;
 Método: DELETE;
 Path: http://localhost:3333/nurse/:id
 ```
+
+<h3>Rotas Service >>></h3>
+
+```sh
+Requisição: service;
+Descrição: Enviando o body com Id do paciente e Id do médico, inicia o atendimento, atualiza o status do paciente para "Atendido" e incrementa um atendimento na contagem de atendimentos de ambos. Modelo do body:
+{
+    "idPatient": "9",
+    "idDoctor": "1"
+};
+Método: POST;
+Path: http://localhost:3333/service
+```
+
+
+<h2>Sugestões e Melhorias:</h2>
+
+- FrontEnd - A API pode receber um FrontEnd para melhorar a usabilidade;
+- Rotas - A API pode receber novas rotas e oferecendo novas funcionalidades;
+- As especificações de cada model pode ser aprimorada;
+- ...
