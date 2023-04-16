@@ -101,7 +101,7 @@ Path: http://localhost:3333/patient/:id/status
 
 ```sh
 Requisição: patientsList;
-Descrição: Gera uma lista dos pacientes cadastrados no banco de dados;
+Descrição: Gera uma lista dos pacientes cadastrados no banco de dados, podendo ser filtrado pelos campos ["AGUARDANDO_ATENDIMENTO", "EM_ATENDIMENTO", "ATENDIDO", "NAO_ATENDIDO"];
 Método: GET;
 Path: http://localhost:3333/patient
 ```
@@ -146,7 +146,7 @@ Path: http://localhost:3333/doctor/:id/status
 
 ```sh
 Requisição: doctorsList;
-Descrição: Gera uma lista dos médicos cadastrados, podendo filtrar por ATIVO ou INATIVO;
+Descrição: Gera uma lista dos médicos cadastrados, podendo filtrar por ["ATIVO"] ou ["INATIVO"];
 Método: GET;
 Path: http://localhost:3333/doctor?statusDoctor=status
 ```
