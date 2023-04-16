@@ -5,10 +5,10 @@
 
 <p>A API Medical System executa o gerenciamento dos cadastros de médicos, enfermeiros e pacientes através da insersão, busca e alteração no banco de dados. </p>
 <p>A API Medical System fornece o registro de atendimento dos médicos e a atualização do status do paciente quando atendido.</p>
-<p>________________________</p>
+<p>_________________________________________________</p>
 <p>The Medical System API manages the records of doctors, nurses and patients by inserting, searching and changing the database. </p>
 <p>The Medical System API provides physicians' attendance record and patient status update when attended.</p>
-
+<p>_________________________________________________</p>
 
 
 <h2>Tecs:</h2>
@@ -24,7 +24,7 @@
 | Sequelize | [https://sequelize.org/] |
 | Node.JS | [https://nodejs.org/en] |
 | Nodemon | [https://www.npmjs.com/package/nodemon] |
-
+<p>_________________________________________________</p>
 
 
 <h2>Instalação/Installation </h2>
@@ -56,6 +56,7 @@ Por fim, instalaremos o Nodemon para poder atualizar o servidor automaticamente.
 ```sh
 npm i nodemon
 ```
+<p>_________________________________________________</p>
 
 <h2>Padrões Utilizados</h2>
 
@@ -69,7 +70,7 @@ O projeto foi executado em pastas para oferecer uma melhor compreensão do códi
 Nas pastas os arquivos estão separados conforme a sua função. 
 
 A pasta [index.js] que consta no arquivo raiz é o início do projeto, faz a ligação do banco de dados e nele contém as rotas das requisições. 
-
+<p>_________________________________________________</p>
 
 <h2>Requisições, Descrição e Path</h2>
 
@@ -119,6 +120,7 @@ Descrição: Busca o paciente no banco de dados pelo Id e exclui do banco de dad
 Método: DELETE;
 Path: http://localhost:3333/patient/:id
 ```
+<p>_________________________________________________</p>
 
 <h3>Rotas Doctor >>></h3>
 
@@ -164,6 +166,7 @@ Descrição: Busca o médico pelo Id e exclui do banco de dados;
 Método: DELETE;
 Path: http://localhost:3333/doctor/:id
 ```
+<p>_________________________________________________</p>
 
 <h3>Rotas Nurse >>></h3>
 
@@ -203,6 +206,7 @@ Descrição: Busca o enfermeiro pelo Id e exclui do banco de dados;
 Método: DELETE;
 Path: http://localhost:3333/nurse/:id
 ```
+<p>_________________________________________________</p>
 
 <h3>Rotas Service >>></h3>
 
@@ -216,11 +220,11 @@ Descrição: Enviando o body com Id do paciente e Id do médico, inicia o atendi
 Método: POST;
 Path: http://localhost:3333/service
 ```
-
+<p>_________________________________________________</p>
 
 <h2>Sugestões e Melhorias:</h2>
 
 - FrontEnd - A API pode receber um FrontEnd para melhorar a usabilidade;
-- Rotas - A API pode receber novas rotas e oferecendo novas funcionalidades;
+- Rotas - A API pode receber novas rotas e oferecer novas funcionalidades;
 - As especificações de cada model pode ser aprimorada;
 - ...
