@@ -226,5 +226,5 @@ Path: http://localhost:3333/service
 
 - FrontEnd - A API pode receber um FrontEnd para melhorar a usabilidade;
 - Rotas - A API pode receber novas rotas e oferecer novas funcionalidades;
-- As especificações de cada model pode ser aprimorada;
+- Models - As especificações de cada model podem ser aprimoradas;
 - ...
