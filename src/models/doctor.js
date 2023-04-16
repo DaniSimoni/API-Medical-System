@@ -59,24 +59,16 @@ const Doctor = connection.define('doctor', {
         allowNull: true,
     },
 
-    totalAtendances: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        defaultValue: 0,
-    },
-
     statusDoctor: {
         type: Sequelize.ENUM("ATIVO", "INATIVO"),
         allowNull:false,
     },
-
-    doctorTotalAtendances: {
+    totalAtendances: {
         type: Sequelize.INTEGER,
-        defaultValue: 0,
         allowNull: false,
+        defaultValue: 0,
     }
-}
-);
+});
 
 
 module.exports = Doctor;

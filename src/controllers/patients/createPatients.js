@@ -22,7 +22,7 @@ async function createPatient (req, res) {
         
         const cpfExists = await Patient.findOne({where: {cpf: req.body.cpf}})
 
-        if (!cpfExists) {
+        if (!cpfExists) {   
 
         const newPatient = await Patient.create(patient)
             res.status(201).json(newPatient)

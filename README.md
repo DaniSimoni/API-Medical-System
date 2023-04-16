@@ -58,3 +58,152 @@ Por fim, instalaremos o Nodemon para poder atualizar o servidor automaticamente.
 
 ```sh
 npm i nodemon
+
+```
+
+<h2>Padrões Utilizados</h2>
+
+O projeto foi executado em pastas para oferecer uma melhor compreensão do código. Veja como está idealizado:
+
+- [src] - Pastas Controllers, Models e Database;
+- [databse] - Pasta com arquivo com a inicialização da rota Sequilize;
+- [models] - Arquivos de criação de tabelas no banco de dados;
+- [controllers] - Pastas com os arquivos das requisições da aplicação. Constam as pastas patients, doctors, nurses e service;
+
+Nas pastas os arquivos estão separados conforme a sua função. 
+
+A pasta [index.js] que consta no arquivo raiz é o início do projeto, faz a ligação do banco de dados e nele contém as rotas das requisições. 
+
+
+<h2>Requisições, Descrição e Path</h2>
+
+<p>A aplicação consta com 3 sessões de requisições, sendo elas, Patient, Doctor, Nurse. Abaixo você confere as informações principais para a utilização das requisições, suas funções e path's:</p>
+
+<h3>Rotas Patient >>></h3>
+
+```sh
+Requisição: createPatient;
+Descrição: Cria um paciente novo no banco de dados;
+Método: POST;
+Path: http://localhost:3333/patient
+```
+
+
+```sh
+Requisição: updatePatient;
+Descrição: Atualiza as informações de um paciente já criado no banco de dados;
+Método: PUT;
+Path: http://localhost:3333/patient/:id
+```
+
+```sh
+Requisição: updateStatus;
+Descrição: Altera o Status do paciente no banco de dados;
+Método: PUT;
+Path: http://localhost:3333/patient/:id/status
+```
+
+```sh
+Requisição: patientsList;
+Descrição: Gera uma lista dos pacientes cadastrados no banco de dados;
+Método: GET;
+Path: http://localhost:3333/patient
+```
+
+```sh
+Requisição: searchPatient;
+Descrição: Busca o paciente no banco de dados pelo Id;
+Método: GET;
+Path: http://localhost:3333/patient/:id
+```
+
+```sh
+Requisição: deletePatient;
+Descrição: Busca o paciente no banco de dados pelo Id e exclui do banco de dados;
+Método: DELETE;
+Path: http://localhost:3333/patient/:id
+```
+
+<h3>Rotas Doctor >>></h3>
+
+```sh
+Requisição: createDoctor;
+Descrição: Cria um médico novo no banco de dados;
+Método: POST;
+Path: http://localhost:3333/doctor
+```
+
+
+```sh
+Requisição: updateDoctor;
+Descrição: Atualiza as informações de um médico já criado no banco de dados;
+Método: PUT;
+Path: http://localhost:3333/doctor/:id
+```
+
+```sh
+Requisição: updateStatus;
+Descrição: Altera o Status do médico no banco de dados;
+Método: PUT;
+Path: http://localhost:3333/doctor/:id/status
+```
+
+```sh
+Requisição: doctorsList;
+Descrição: Gera uma lista dos médicos cadastrados, podendo filtrar por ATIVO ou INATIVO;
+Método: GET;
+Path: http://localhost:3333/doctor?statusDoctor=status
+```
+
+```sh
+Requisição: searchDoctor;
+Descrição: Busca o médico no banco de dados pelo Id;
+Método: GET;
+Path: http://localhost:3333/doctor/:id
+```
+
+```sh
+Requisição: deleteDoctor;
+Descrição: Busca o médico pelo Id e exclui do banco de dados;
+Método: DELETE;
+Path: http://localhost:3333/doctor/:id
+```
+
+<h3>Rotas Nurse >>></h3>
+
+```sh
+Requisição: createNurse;
+Descrição: Cria um enfermeiro novo no banco de dados;
+Método: POST;
+Path: http://localhost:3333/nurse
+```
+
+
+```sh
+Requisição: updateNurse;
+Descrição: Atualiza as informações de um médico já criado no banco de dados;
+Método: PUT;
+Path: http://localhost:3333/nurse/:id
+```
+
+
+```sh
+Requisição: nurseList;
+Descrição: Gera uma lista dos enfermeiros cadastrados no banco de dados;
+Método: GET;
+Path: http://localhost:3333/nurse
+```
+
+```sh
+Requisição: searchNurse;
+Descrição: Busca o enfermeiro no banco de dados pelo Id;
+Método: GET;
+Path: http://localhost:3333/nurse/:id
+```
+
+```sh
+Requisição: deleteNurse;
+Descrição: Busca o enfermeiro pelo Id e exclui do banco de dados;
+Método: DELETE;
+Path: http://localhost:3333/nurse/:id
+```

@@ -19,7 +19,7 @@ const Nurse = connection.define('nurse', {
     },
 
     birth: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true,
     },
 
