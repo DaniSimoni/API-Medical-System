@@ -21,7 +21,7 @@ const nursesList = require('./src/controllers/nurses/nursesList');
 const searchNurse= require('./src/controllers/nurses/searchNurses');
 const deleteNurse = require('./src/controllers/nurses/deleteNurses');
 
-const service = require('./src/controllers/service/atendanceService')
+const service = require('./src/controllers/service/attendance')
 
 const app = express();
 app.use(express.json());

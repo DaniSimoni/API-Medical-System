@@ -1,6 +1,6 @@
 const Patient = require('../../models/patient');
 
-async function updatePatient(req, res) {
+async function updatePatient(req, res, next) {
 
     try {
         const { id } = req.params;
@@ -16,7 +16,55 @@ async function updatePatient(req, res) {
             healthInsurance
         } = req.body;
 
-         
+        if (req.body.name === "") {
+            res.status(404).json({message: 'É necessário preencher o campo Name'})
+            next()
+        }
+
+        if (req.body.gender === "" || req.body.gender === null) {
+            res.status(404).json({message: 'É necessário preencher o campo Gender'})
+            next()
+        }
+
+        if (req.body.birth === "" || req.body.birth === null) {
+            res.status(404).json({message: 'É necessário preencher o campo Birth'})
+            next()
+        }
+
+        if (req.body.cpf === "" || req.body.cpf === null) {
+            res.status(404).json({message: 'É necessário preencher o campo CPF'})
+            next()
+        }
+
+        if (req.body.emergency === "" || req.body.emergency === null) {
+            res.status(404).json({message: 'É necessário preencher o campo Emergency'})
+            next()
+        }
+
+        if (req.body.allergy === "" || req.body.allergy === null) {
+            res.status(404).json({message: 'É necessário preencher o campo Allergy'})
+            next()
+        }
+
+        if (req.body.birth === "" || req.body.birth === null) {
+            res.status(404).json({message: 'É necessário preencher o campo Birth'})
+            next()
+        }
+
+        if (req.body.specialCares === "" || req.body.specialCares === null) {
+            res.status(404).json({message: 'É necessário preencher o campo Special Cares'})
+            next()
+        }
+
+        if (!cpfExists) {   
+
+            const newPatient = await Patient.create(patient)
+                res.status(201).json(newPatient)
+    
+                }else {
+                    res.status(409).json({message: 'CPF já consta no Banco de Dados. Confira'})
+                }
+                
         const idExists = await Patient.findByPk(id)
         
         if (!idExists) {

@@ -63,7 +63,7 @@ npm i nodemon
 O projeto foi executado em pastas para oferecer uma melhor compreensão do código. Veja como está idealizado:
 
 - [src] - Pastas Controllers, Models e Database;
-- [databse] - Pasta com arquivo com a inicialização da rota Sequilize;
+- [database] - Pasta com arquivo com a inicialização da rota Sequilize;
 - [models] - Arquivos de criação de tabelas no banco de dados;
 - [controllers] - Pastas com os arquivos das requisições da aplicação. Constam as pastas patients, doctors, nurses e service;
 
@@ -83,6 +83,18 @@ Requisição: createPatient;
 Descrição: Cria um paciente novo no banco de dados;
 Método: POST;
 Path: http://localhost:3333/patient
+Modelo do body:
+{
+    "name": "",
+    "gender": "",
+	"birth": "YYYY-MM-DD",
+    "cpf": "",
+    "phone": "",
+    "emergency": "",
+    "allergy": "",
+    "specialCares": "",        
+    "healthInsurance": ""
+}
 ```
 
 
@@ -91,6 +103,18 @@ Requisição: updatePatient;
 Descrição: Atualiza as informações de um paciente já criado no banco de dados;
 Método: PUT;
 Path: http://localhost:3333/patient/:id
+Modelo do body:
+{
+    "name": "",
+    "gender": "",
+	"birth": "YYYY-MM-DD",
+    "cpf": "",
+    "phone": "",
+    "emergency": "",
+    "allergy": "",
+    "specialCares": "",        
+    "healthInsurance": ""
+}
 ```
 
 ```sh
@@ -98,6 +122,10 @@ Requisição: updateStatus;
 Descrição: Altera o Status do paciente no banco de dados;
 Método: PUT;
 Path: http://localhost:3333/patient/:id/status
+Modelo do body:
+{
+	"status": "AGUARDANDO_ATENDIMENTO"
+}
 ```
 
 ```sh
@@ -129,6 +157,18 @@ Requisição: createDoctor;
 Descrição: Cria um médico novo no banco de dados;
 Método: POST;
 Path: http://localhost:3333/doctor
+Modelo do body:
+{
+	"name": "",
+    "gender": "",
+    "birth": "YYYY-MM-DD",
+    "cpf": "",
+    "phone": "",
+	"academy": "",
+    "crmUf": "",
+	"specialization": "",
+    "statusDoctor": "" 
+}
 ```
 
 
@@ -137,6 +177,18 @@ Requisição: updateDoctor;
 Descrição: Atualiza as informações de um médico já criado no banco de dados;
 Método: PUT;
 Path: http://localhost:3333/doctor/:id
+Modelo do body:
+{
+	"name": "",
+    "gender": "",
+    "birth": "YYYY-MM-DD",
+    "cpf": "",
+    "phone": "",
+	"academy": "",
+    "crmUf": "",
+	"specialization": "",
+    "statusDoctor": "" 
+}
 ```
 
 ```sh
@@ -144,6 +196,10 @@ Requisição: updateStatus;
 Descrição: Altera o Status do médico no banco de dados;
 Método: PUT;
 Path: http://localhost:3333/doctor/:id/status
+Modelo do body:
+{
+	"statusDoctor": "Inativo"
+}
 ```
 
 ```sh
@@ -175,6 +231,16 @@ Requisição: createNurse;
 Descrição: Cria um enfermeiro novo no banco de dados;
 Método: POST;
 Path: http://localhost:3333/nurse
+Modelo do body:
+{
+    "name": "",
+    "gender": "",
+    "birth": "YYYY-MM-DD",
+    "cpf": "",
+    "phone": "",
+    "academy": "",
+    "cofenUf": ""
+}
 ```
 
 
@@ -183,6 +249,16 @@ Requisição: updateNurse;
 Descrição: Atualiza as informações de um médico já criado no banco de dados;
 Método: PUT;
 Path: http://localhost:3333/nurse/:id
+Modelo do body:
+{
+    "name": "",
+    "gender": "",
+    "birth": "YYYY-MM-DD",
+    "cpf": "",
+    "phone": "",
+    "academy": "",
+    "cofenUf": ""
+}
 ```
 
 
@@ -212,19 +288,20 @@ Path: http://localhost:3333/nurse/:id
 
 ```sh
 Requisição: service;
-Descrição: Enviando o body com Id do paciente e Id do médico, inicia o atendimento, atualiza o status do paciente para "Atendido" e incrementa um atendimento na contagem de atendimentos de ambos. Modelo do body:
+Descrição: Enviando o body com Id do paciente e Id do médico, inicia o atendimento, atualiza o status do paciente para "Atendido" e incrementa um atendimento na contagem de atendimentos de ambos. 
+Método: POST;
+Path: http://localhost:3333/service
+Modelo do body:
 {
     "idPatient": "9",
     "idDoctor": "1"
 };
-Método: POST;
-Path: http://localhost:3333/service
 ```
 <p>_________________________________________________</p>
 
 <h2>Sugestões e Melhorias:</h2>
 
 - FrontEnd - A API pode receber um FrontEnd para melhorar a usabilidade;
-- Rotas - A API pode receber novas rotas e oferecer novas funcionalidades;
-- As especificações de cada model pode ser aprimorada;
+- Rotas - A API pode receber novas rotas e oferecer novas funcionalidades, por exemplo, sistema de login para o usuários, lista de pacientes atendidos por determinado médico, etc;
+- As especificações de cada model podem ser aprimoradas;
 - ...

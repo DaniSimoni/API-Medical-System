@@ -1,6 +1,6 @@
 const Nurse = require('../../models/nurse');
 
-async function createNurse (req, res) {
+async function createNurse (req, res, next) {
 
     try {
 
@@ -15,6 +15,42 @@ async function createNurse (req, res) {
         cofenUf: req.body.cofenUf, 
     
     }
+
+    if (req.body.name === "") {
+        res.status(404).json({message: 'É necessário preencher o campo Name'})
+        next()
+    }
+
+    if (req.body.gender === "") {
+        res.status(404).json({message: 'É necessário preencher o campo Gender'})
+        next()
+    }
+
+    if (req.body.birth === "") {
+        res.status(404).json({message: 'É necessário preencher o campo Birth'})
+        next()
+    }
+
+    if (req.body.cpf === "" ) {
+        res.status(404).json({message: 'É necessário preencher o campo CPF'})
+        next()
+    }
+
+    if (req.body.phone === "") {
+        res.status(404).json({message: 'É necessário preencher o campo Phone'})
+        next()
+    }
+
+    if (req.body.academy === "") {
+        res.status(404).json({message: 'É necessário preencher o campo Academy'})
+        next()
+    }
+
+    if (req.body.cofenUf === "") {
+        res.status(404).json({message: 'É necessário preencher o campo Confen UF'})
+        next()
+    }
+
 
     const nurseExists = await Nurse.findOne({where: {cpf: req.body.cpf}})
 
