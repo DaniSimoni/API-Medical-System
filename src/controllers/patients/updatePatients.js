@@ -21,32 +21,32 @@ async function updatePatient(req, res, next) {
             next()
         }
 
-        if (req.body.gender === "" || req.body.gender === null) {
+        if (req.body.gender === "") {
             res.status(404).json({message: 'É necessário preencher o campo Gender'})
             next()
         }
 
-        if (req.body.birth === "" || req.body.birth === null) {
+        if (req.body.birth === "") {
             res.status(404).json({message: 'É necessário preencher o campo Birth'})
             next()
         }
 
-        if (req.body.cpf === "" || req.body.cpf === null) {
+        if (req.body.cpf === "") {
             res.status(404).json({message: 'É necessário preencher o campo CPF'})
             next()
         }
 
-        if (req.body.emergency === "" || req.body.emergency === null) {
+        if (req.body.emergency === "") {
             res.status(404).json({message: 'É necessário preencher o campo Emergency'})
             next()
         }
 
-        if (req.body.allergy === "" || req.body.allergy === null) {
+        if (req.body.allergy === "") {
             res.status(404).json({message: 'É necessário preencher o campo Allergy'})
             next()
         }
 
-        if (req.body.specialCares === "" || req.body.specialCares === null) {
+        if (req.body.specialCares === "") {
             res.status(404).json({message: 'É necessário preencher o campo Special Cares'})
             next()
         }
@@ -77,7 +77,7 @@ async function updatePatient(req, res, next) {
 
             const newPatient = await Patient.create(patient)
                 res.status(201).json(newPatient)
-                next()
+              
     
                 }else {
                     res.status(409).json({message: 'CPF já consta no Banco de Dados. Confira'})
@@ -85,7 +85,7 @@ async function updatePatient(req, res, next) {
                 }
     } catch (error) {
         return res.status(400).json({message: 'Erro de requisição. Verifique os dados!'});
-        next()
+    
     }
 };
 
