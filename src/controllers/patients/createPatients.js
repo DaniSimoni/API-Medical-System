@@ -20,7 +20,7 @@ async function createPatient (req, res, next) {
             totalAtendances: req.body.totalAtendances,
         }
 
-        if (req.body.name === "") {
+/*         if (req.body.name === "") {
             res.status(404).json({message: 'É necessário preencher o campo Name'})
             next()
         }
@@ -59,7 +59,7 @@ async function createPatient (req, res, next) {
             res.status(404).json({message: 'É necessário preencher o campo Special Cares'})
             next()
         }
-                
+                 */
         const cpfExists = await Patient.findOne({where: {cpf: req.body.cpf}})
 
         if (!cpfExists) {   
@@ -70,9 +70,7 @@ async function createPatient (req, res, next) {
             }else {
                 res.status(409).json({message: 'CPF já consta no Banco de Dados. Confira'})
             }
-        
-    
-
+            
     } catch (error) {
             res.status(400).json({message: "Erro de Sistema!"})
     }

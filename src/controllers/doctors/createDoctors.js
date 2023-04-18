@@ -70,13 +70,16 @@ async function registerDoctor(req, res, next) {
 
         const newDoctor = await Doctor.create(doctor);
         res.status(201).json(newDoctor);
+        next()
 
         } else {
             res.status(409).json({message: 'CPF já consta no Banco de Dados. Confira'});
+            next()
         }
 
         } catch (error) {
             res.status(400).json({message: error.message})
+            next()
     }
 };
 
