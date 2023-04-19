@@ -1,43 +1,56 @@
 const Doctor = require('../../models/doctor');
 const Patient = require('../../models/patient');
+const Attendance = require('../../models/attendance');
 
-async function service(req,res) {
+
+async function createAttendance(req, res, next) {
 
     try {
 
-      const { idPatient, idDoctor } = req.body;
-  
-      if (!idPatient || !idDoctor) {
-        return res.status(400).json({ message: 'Os campos pacienteId e medicoId são obrigatórios.' });
+      const patient = await Patient.findByPk(req.body.idPatient);
+      const doctor = await Doctor.findByPk(req.body.idDoctor);
+
+      const data = {
+        idPatient: req.body.idPatient, 
+        idDoctor: req.body.idDoctor,
+      }
+
+   
+      if (!data.idPatient || !data.idDoctor) {
+        res.status(400).json({ message: 'Os campos pacienteId e medicoId são obrigatórios.' });
+        next()
       }
   
-      const patient = await Patient.findByPk(idPatient);
-      const doctor = await Doctor.findByPk(idDoctor);
-  
-      if (!patient) {
-        return res.status(404).json({ message: `Paciente com id ${idPatient} não encontrado.` });
+      const patientExists = await Patient.findByPk(data.idPatient);
+      const doctorExists = await Doctor.findByPk(data.idDoctor);
+      
+      if (!patientExists) {
+        res.status(404).json({ message: `Paciente com id não encontrado.` });
+        next()
       }
-  
-      if (!doctor) {
-        return res.status(404).json({ message: `Médico com id ${idDoctor} não encontrado.` });
+
+      if (!doctorExists) {
+        res.status(404).json({ message: `Médico com id não encontrado.` });
+        next()
       }
-  
-      patient.totalAtendances += 1;
-      doctor.totalAtendances += 1;
-  
+      
+      data.idPatient.totalAttendances += 1;
+      data.idDoctor.totalAttendances += 1;
+      
       patient.status = 'ATENDIDO';
   
       await patient.save();
       await doctor.save();
-  
-      return res.status(200).json({ patient, doctor });
+      
+      const newAttendance = await Attendance.create(data)
+      return res.status(200).json({ newAttendance });   
   
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ message: 'Erro interno do servidor.' });
+      return res.status(500).json({ message: error.message });
     }
   };
 
-  module.exports = service;
+  module.exports = createAttendance;
         
   

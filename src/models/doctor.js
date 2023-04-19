@@ -63,7 +63,7 @@ const Doctor = connection.define('doctor', {
         type: Sequelize.ENUM("ATIVO", "INATIVO"),
         allowNull:false,
     },
-    totalAtendances: {
+    totalAttendances: {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0,

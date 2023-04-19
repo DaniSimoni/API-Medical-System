@@ -59,7 +59,7 @@ const Patient = connection.define('patient', {
 
     },
 
-    totalAtendances: {
+    totalAttendances: {
         type: Sequelize.INTEGER,
         allowNull: true,
         defaultValue: 0,

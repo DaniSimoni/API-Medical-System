@@ -21,7 +21,7 @@ const nursesList = require('./src/controllers/nurses/nursesList');
 const searchNurse= require('./src/controllers/nurses/searchNurses');
 const deleteNurse = require('./src/controllers/nurses/deleteNurses');
 
-const service = require('./src/controllers/service/attendance')
+const createAttendance = require('./src/controllers/service/attendance')
 
 const app = express();
 app.use(express.json());
@@ -49,6 +49,6 @@ app.get('/nurse', nursesList);
 app.get('/nurse/:id', searchNurse);
 app.delete('/nurse/:id', deleteNurse);
 
-app.post('/service', service);
+app.post('/attendance', createAttendance);
 
 app.listen(3333, () => {console.log('Projeto ON!')});

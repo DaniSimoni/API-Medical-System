@@ -243,7 +243,6 @@ Modelo do body:
 }
 ```
 
-
 ```sh
 Requisição: updateNurse;
 Descrição: Atualiza as informações de um médico já criado no banco de dados;
@@ -260,7 +259,6 @@ Modelo do body:
     "cofenUf": ""
 }
 ```
-
 
 ```sh
 Requisição: nurseList;
