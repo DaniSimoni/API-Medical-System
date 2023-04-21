@@ -38,10 +38,10 @@ app.delete('/patient/:id', deletePatient);
 
 app.post('/doctor', registerDoctor);
 app.put('/doctor/:id', updateDoctor);
-app.put('/doctor/:id/status', updateStatusDoctors);
+app.put('/doctor/:id/statusDoctor', updateStatusDoctors);
 app.get('/doctor', doctorsList);
 app.get('/doctor/:id', searchDoctor);
-app.delete('/doctor/:id', deleteDoctor);
+app.delete('/doctor/:id', deleteDoctor);    
 
 app.post('/nurse', createNurse);
 app.put('/nurse/:id', updateNurse);

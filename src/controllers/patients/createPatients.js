@@ -1,7 +1,7 @@
 
 const Patient = require('../../models/patient');
 
-async function createPatient (req, res, next) {
+async function createPatient (req, res) {
 
     try {
         
@@ -20,46 +20,38 @@ async function createPatient (req, res, next) {
             totalAtendances: req.body.totalAtendances,
         }
 
-/*         if (req.body.name === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Name'})
-            next()
+        if (req.body.name === "") {
+            return res.status(404).json({message: 'É necessário preencher o campo Name'})           
         }
 
         if (req.body.gender === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Gender'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Gender'})          
         }
 
         if (req.body.birth === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Birth'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Birth'})        
         }
 
         if (req.body.cpf === "") {
-            res.status(404).json({message: 'É necessário preencher o campo CPF'})
-            next()
+            return  res.status(404).json({message: 'É necessário preencher o campo CPF'})        
         }
 
         if (req.body.emergency === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Emergency'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Emergency'})        
         }
 
         if (req.body.allergy === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Allergy'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Allergy'})    
         }
 
         if (req.body.birth === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Birth'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Birth'})       
         }
 
         if (req.body.specialCares === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Special Cares'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Special Cares'})            
         }
-                 */
+                
         const cpfExists = await Patient.findOne({where: {cpf: req.body.cpf}})
 
         if (!cpfExists) {   

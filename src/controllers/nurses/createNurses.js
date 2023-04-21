@@ -1,6 +1,6 @@
 const Nurse = require('../../models/nurse');
 
-async function createNurse (req, res, next) {
+async function createNurse (req, res) {
 
     try {
 
@@ -17,38 +17,31 @@ async function createNurse (req, res, next) {
     }
 
     if (req.body.name === "") {
-        res.status(404).json({message: 'É necessário preencher o campo Name'})
-        next()
+        return res.status(404).json({message: 'É necessário preencher o campo Name'})       
     }
 
     if (req.body.gender === "") {
-        res.status(404).json({message: 'É necessário preencher o campo Gender'})
-        next()
+        return res.status(404).json({message: 'É necessário preencher o campo Gender'})        
     }
 
     if (req.body.birth === "") {
-        res.status(404).json({message: 'É necessário preencher o campo Birth'})
-        next()
+        return res.status(404).json({message: 'É necessário preencher o campo Birth'})        
     }
 
     if (req.body.cpf === "" ) {
-        res.status(404).json({message: 'É necessário preencher o campo CPF'})
-        next()
+        return res.status(404).json({message: 'É necessário preencher o campo CPF'})        
     }
 
     if (req.body.phone === "") {
-        res.status(404).json({message: 'É necessário preencher o campo Phone'})
-        next()
+        return res.status(404).json({message: 'É necessário preencher o campo Phone'})       
     }
 
     if (req.body.academy === "") {
-        res.status(404).json({message: 'É necessário preencher o campo Academy'})
-        next()
+        return res.status(404).json({message: 'É necessário preencher o campo Academy'})       
     }
 
     if (req.body.cofenUf === "") {
-        res.status(404).json({message: 'É necessário preencher o campo Confen UF'})
-        next()
+        return res.status(404).json({message: 'É necessário preencher o campo Confen UF'})       
     }
 
 

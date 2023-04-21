@@ -1,8 +1,9 @@
 const Patient = require('../../models/patient');
 
-async function updatePatient(req, res, next) {
+async function updatePatient(req, res) {
 
     try {
+
         const { id } = req.params;
         const {
             name,    
@@ -15,49 +16,24 @@ async function updatePatient(req, res, next) {
             specialCares,        
             healthInsurance
         } = req.body;
-        
-        if (req.body.name === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Name'})
-            next()
-        }
 
-        if (req.body.gender === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Gender'})
-            next()
-        }
-
-        if (req.body.birth === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Birth'})
-            next()
-        }
-
-        if (req.body.cpf === "") {
-            res.status(404).json({message: 'É necessário preencher o campo CPF'})
-            next()
-        }
-
-        if (req.body.emergency === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Emergency'})
-            next()
-        }
-
-        if (req.body.allergy === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Allergy'})
-            next()
-        }
-
-        if (req.body.specialCares === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Special Cares'})
-            next()
-        }
- 
-                      
+                        
         const idExists = await Patient.findByPk(id)
-        
         if (!idExists) {
-            res.status(404).json({message: 'Id não encontrado'})           
+            return res.status(404).json({message: 'Id não encontrado'}) 
             
-        } else {
+        }      
+
+        const cpfExists = await Patient.findOne({
+            where: {
+                cpf
+            }})
+        if (cpfExists) {   
+            return res.status(409).json({message: 'CPF já consta no Banco de Dados. Confira'})
+            
+    
+        }else {
+
             const patient = await Patient.findByPk(id);
             patient.name = name;
             patient.gender = gender;
@@ -70,21 +46,13 @@ async function updatePatient(req, res, next) {
             patient.healthInsurance = healthInsurance;
 
             const patientUpdate = await patient.save();
-            res.status(200).json(patientUpdate) 
+            return res.status(200).json(patientUpdate) 
+        
         }
 
-        if (!cpfExists) {   
-
-            const newPatient = await Patient.create(patient)
-                res.status(201).json(newPatient)
-              
-    
-                }else {
-                    res.status(409).json({message: 'CPF já consta no Banco de Dados. Confira'})
-                    next()
-                }
     } catch (error) {
-        return res.status(400).json({message: 'Erro de requisição. Verifique os dados!'});
+        console.log(error)
+        return res.status(400).json({message: error.message});
     
     }
 };

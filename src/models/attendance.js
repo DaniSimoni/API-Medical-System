@@ -23,5 +23,8 @@ const Attendance = connection.define('attendance', {
     }
 });
 
+Attendance.belongsTo(Patient, {foreignKey: "idPatient"});
+Attendance.belongsTo(Doctor, {foreignKey: "idDoctor"});
+
 module.exports = Attendance;
 

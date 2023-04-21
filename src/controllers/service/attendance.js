@@ -3,7 +3,7 @@ const Patient = require('../../models/patient');
 const Attendance = require('../../models/attendance');
 
 
-async function createAttendance(req, res, next) {
+async function createAttendance(req, res) {
 
     try {
 
@@ -17,23 +17,24 @@ async function createAttendance(req, res, next) {
 
    
       if (!data.idPatient || !data.idDoctor) {
-        res.status(400).json({ message: 'Os campos pacienteId e medicoId são obrigatórios.' });
-        next()
+        return res.status(400).json({ message: 'Os campos pacienteId e medicoId são obrigatórios.' });
+      
       }
   
       const patientExists = await Patient.findByPk(data.idPatient);
       const doctorExists = await Doctor.findByPk(data.idDoctor);
       
       if (!patientExists) {
-        res.status(404).json({ message: `Paciente com id não encontrado.` });
-        next()
+        return res.status(404).json({ message: `Paciente com id não encontrado.` });
+        
       }
 
       if (!doctorExists) {
         res.status(404).json({ message: `Médico com id não encontrado.` });
-        next()
+       
       }
-      
+
+     
       data.idPatient.totalAttendances += 1;
       data.idDoctor.totalAttendances += 1;
       
@@ -50,6 +51,8 @@ async function createAttendance(req, res, next) {
       return res.status(500).json({ message: error.message });
     }
   };
+
+
 
   module.exports = createAttendance;
         

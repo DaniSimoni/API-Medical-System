@@ -1,6 +1,6 @@
 const Doctor = require('../../models/doctor');
 
-async function registerDoctor(req, res, next) {
+async function registerDoctor(req, res) {
 
     try {
         
@@ -20,66 +20,57 @@ async function registerDoctor(req, res, next) {
         }
 
         if (req.body.name === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Name'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Name'})            
         }
 
         if (req.body.gender === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Gender'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Gender'})           
         }
 
         if (req.body.birth === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Birth'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Birth'})          
         }
 
         if (req.body.cpf === "") {
-            res.status(404).json({message: 'É necessário preencher o campo CPF'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo CPF'})           
         }
 
         if (req.body.phone === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Phone'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Phone'})         
         }
 
         if (req.body.academy === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Academy'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Academy'})            
         }
 
         if (req.body.crmUf === "") {
-            res.status(404).json({message: 'É necessário preencher o campo CRM UF'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo CRM UF'})           
         }
 
         if (req.body.specialization === "") {
-            res.status(404).json({message: 'É necessário preencher o Specialization'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o Specialization'})           
         }
 
         if (req.body.phone === "") {
-            res.status(404).json({message: 'É necessário preencher o campo Phone'})
-            next()
+            return res.status(404).json({message: 'É necessário preencher o campo Phone'})            
         }
 
-        const doctorExists = await Doctor.findOne({where: {cpf: req.body.cpf}});
+        const cpfExists = await Doctor.findOne({where: {cpf: req.body.cpf}});
 
-        if (!doctorExists) {
+        if (!cpfExists) {
 
         const newDoctor = await Doctor.create(doctor);
         res.status(201).json(newDoctor);
-        next()
+       
 
         } else {
             res.status(409).json({message: 'CPF já consta no Banco de Dados. Confira'});
-            next()
+          
         }
 
         } catch (error) {
             res.status(400).json({message: error.message})
-            next()
+           
     }
 };
 
