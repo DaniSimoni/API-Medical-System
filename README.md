@@ -300,6 +300,10 @@ Modelo do body:
 <h2>Sugestões e Melhorias:</h2>
 
 - FrontEnd - A API pode receber um FrontEnd para melhorar a usabilidade;
-- Rotas - A API pode receber novas rotas e oferecer novas funcionalidades, por exemplo, rotas para listar pacientes atendidos por determinado Médico, ou um sistema de login para os usuários do sistema.;
-- As especificações de cada model pode ser aprimorada;
+- Rotas - A API pode receber novas rotas e oferecer novas funcionalidades, por exemplo:
+     rotas para listar pacientes atendidos por determinado Médico;
+     inclusão de contagem de atendimento para Nurses;
+     criação de attendence para Nurses;
+     sistema de login para os usuários do sistema;
+- Models - As especificações de cada model podem ser aprimoradas;
 - ...

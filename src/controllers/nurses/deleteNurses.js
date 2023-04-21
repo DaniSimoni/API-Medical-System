@@ -15,7 +15,7 @@ async function deleteNurse(req, res) {
         }
 
     } catch (error) {
-        res.status(500).json({message: "Atenção! Confita a sua solicitação"});
+        res.status(500).json({message: "Atenção! Confira a sua solicitação"});
     }
 };
 

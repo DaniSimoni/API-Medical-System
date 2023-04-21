@@ -1,5 +1,4 @@
 const Doctor = require('../../models/doctor');
-const { Op } = require('sequelize');
 
 async function doctorsList(req, res) {
 
@@ -23,7 +22,7 @@ async function doctorsList(req, res) {
             res.status(200).json(doctors)
         }
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message:  "Erro de Servidor, tente mais tarde"})
     }
 };
 

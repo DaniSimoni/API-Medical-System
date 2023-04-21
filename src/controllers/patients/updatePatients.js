@@ -52,7 +52,7 @@ async function updatePatient(req, res) {
 
     } catch (error) {
         console.log(error)
-        return res.status(400).json({message: error.message});
+        return res.status(400).json({message:  "Erro de Servidor, tente mais tarde"});
     
     }
 };
