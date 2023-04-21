@@ -78,12 +78,13 @@ A pasta [index.js] que consta no arquivo raiz é o início do projeto, faz a lig
 
 <h3>Rotas Patient >>></h3>
 
-```sh
+
 Requisição: createPatient;
 Descrição: Cria um paciente novo no banco de dados;
 Método: POST;
 Path: http://localhost:3333/patient
 Modelo do body:
+```sh
 {
     "name": "",
     "gender": "",
@@ -96,14 +97,12 @@ Modelo do body:
     "healthInsurance": ""
 }
 ```
-
-
-```sh
 Requisição: updatePatient;
 Descrição: Atualiza as informações de um paciente já criado no banco de dados;
 Método: PUT;
 Path: http://localhost:3333/patient/:id
 Modelo do body:
+```sh
 {
     "name": "",
     "gender": "",
@@ -117,47 +116,44 @@ Modelo do body:
 }
 ```
 
-```sh
 Requisição: updateStatus;
 Descrição: Altera o Status do paciente no banco de dados;
 Método: PUT;
 Path: http://localhost:3333/patient/:id/status
 Modelo do body:
+```sh
 {
 	"status": "AGUARDANDO_ATENDIMENTO"
 }
 ```
 
-```sh
 Requisição: patientsList;
 Descrição: Gera uma lista dos pacientes cadastrados no banco de dados, podendo ser filtrado pelos campos ["AGUARDANDO_ATENDIMENTO", "EM_ATENDIMENTO", "ATENDIDO", "NAO_ATENDIDO"];
 Método: GET;
-Path: http://localhost:3333/patient
-```
+Path: 
+http://localhost:3333/patient
 
-```sh
 Requisição: searchPatient;
 Descrição: Busca o paciente no banco de dados pelo Id;
 Método: GET;
 Path: http://localhost:3333/patient/:id
-```
 
-```sh
+
 Requisição: deletePatient;
 Descrição: Busca o paciente no banco de dados pelo Id e exclui do banco de dados;
 Método: DELETE;
 Path: http://localhost:3333/patient/:id
-```
+
 <p>_________________________________________________</p>
 
 <h3>Rotas Doctor >>></h3>
 
-```sh
 Requisição: createDoctor;
 Descrição: Cria um médico novo no banco de dados;
 Método: POST;
 Path: http://localhost:3333/doctor
 Modelo do body:
+```sh
 {
 	"name": "",
     "gender": "",
@@ -172,12 +168,12 @@ Modelo do body:
 ```
 
 
-```sh
 Requisição: updateDoctor;
 Descrição: Atualiza as informações de um médico já criado no banco de dados;
 Método: PUT;
 Path: http://localhost:3333/doctor/:id
 Modelo do body:
+```sh
 {
 	"name": "",
     "gender": "",
@@ -191,47 +187,45 @@ Modelo do body:
 }
 ```
 
-```sh
 Requisição: updateStatus;
 Descrição: Altera o Status do médico no banco de dados;
 Método: PUT;
 Path: http://localhost:3333/doctor/:id/status
 Modelo do body:
+```sh
 {
 	"statusDoctor": "Inativo"
 }
 ```
 
-```sh
+
 Requisição: doctorsList;
 Descrição: Gera uma lista dos médicos cadastrados, podendo filtrar por ["ATIVO"] ou ["INATIVO"];
 Método: GET;
 Path: http://localhost:3333/doctor?statusDoctor=status
-```
 
-```sh
+
 Requisição: searchDoctor;
 Descrição: Busca o médico no banco de dados pelo Id;
 Método: GET;
 Path: http://localhost:3333/doctor/:id
-```
 
-```sh
+
 Requisição: deleteDoctor;
 Descrição: Busca o médico pelo Id e exclui do banco de dados;
 Método: DELETE;
 Path: http://localhost:3333/doctor/:id
-```
+
 <p>_________________________________________________</p>
 
 <h3>Rotas Nurse >>></h3>
 
-```sh
 Requisição: createNurse;
 Descrição: Cria um enfermeiro novo no banco de dados;
 Método: POST;
 Path: http://localhost:3333/nurse
 Modelo do body:
+```sh
 {
     "name": "",
     "gender": "",
@@ -243,12 +237,12 @@ Modelo do body:
 }
 ```
 
-```sh
 Requisição: updateNurse;
 Descrição: Atualiza as informações de um médico já criado no banco de dados;
 Método: PUT;
 Path: http://localhost:3333/nurse/:id
 Modelo do body:
+```sh
 {
     "name": "",
     "gender": "",
@@ -260,40 +254,38 @@ Modelo do body:
 }
 ```
 
-```sh
 Requisição: nurseList;
 Descrição: Gera uma lista dos enfermeiros cadastrados no banco de dados;
 Método: GET;
 Path: http://localhost:3333/nurse
-```
 
-```sh
+
 Requisição: searchNurse;
 Descrição: Busca o enfermeiro no banco de dados pelo Id;
 Método: GET;
 Path: http://localhost:3333/nurse/:id
-```
 
-```sh
+
 Requisição: deleteNurse;
 Descrição: Busca o enfermeiro pelo Id e exclui do banco de dados;
 Método: DELETE;
 Path: http://localhost:3333/nurse/:id
-```
+
 <p>_________________________________________________</p>
 
 <h3>Rotas Service >>></h3>
 
-```sh
+
 Requisição: service;
 Descrição: Enviando o body com Id do paciente e Id do médico, inicia o atendimento, atualiza o status do paciente para "Atendido" e incrementa um atendimento na contagem de atendimentos de ambos. 
 Método: POST;
 Path: http://localhost:3333/service
 Modelo do body:
+```sh
 {
     "idPatient": "9",
     "idDoctor": "1"
-};
+}
 ```
 <p>_________________________________________________</p>
 
@@ -301,9 +293,17 @@ Modelo do body:
 
 - FrontEnd - A API pode receber um FrontEnd para melhorar a usabilidade;
 - Rotas - A API pode receber novas rotas e oferecer novas funcionalidades, por exemplo:
-     rotas para listar pacientes atendidos por determinado Médico;
-     inclusão de contagem de atendimento para Nurses;
-     criação de attendence para Nurses;
-     sistema de login para os usuários do sistema;
+     ```sh
+     + Rotas para listar pacientes atendidos por determinado Médico;
+     ```
+    ```sh
+     + Inclusão de contagem de atendimento para Nurses;
+     ```
+     ```sh
+     + Criação de attendence para Nurses;
+     ```
+     ```sh
+     + Sistema de login para os usuários do sistema;
+     ```
 - Models - As especificações de cada model podem ser aprimoradas;
 - ...
